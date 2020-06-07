@@ -5,28 +5,39 @@ import {
   View,
   SafeAreaView,
   Image,
-  TouchableWithoutFeedback
+  TouchableWithoutFeedback,
+  Button,
+  Alert,
+  Platform,
+  StatusBar,
+  Dimensions
 } from "react-native";
-import { Logs } from "expo";
+import {
+  useDimensions,
+  useDeviceOrientation
+} from "@react-native-community/hooks";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+
+import WelcomeScreen from "./app/screens/WelcomeScreen";
+import ViewImageScreen from "./app/screens/ViewImageScreen";
+import AppText from "./app/components/AppText";
+import AppButton from "./app/components/AppButton";
+import Card from "./app/components/Card";
+import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
 
 export default function App() {
-  let x = 1;
-  const handlePress = () => console.log("Text pressed");
+  const { landscape } = useDeviceOrientation();
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text numberOfLines={1} onPress={handlePress}>
-        lorem
-      </Text>
-      <TouchableWithoutFeedback onPress={() => console.log("press")}>
-        <Image
-          source={{
-            width: 200,
-            height: 300,
-            uri: "https://picsum.photos/200/300"
-          }}
-        />
-      </TouchableWithoutFeedback>
+      {/* <WelcomeScreen /> */}
+      {/* <Card
+        title='Red jacket'
+        subTitle='$100'
+        image={require("./app/assets/chair.jpg")}
+      /> */}
+      {/* <ListingDetailsScreen /> */}
+      <ViewImageScreen />
     </SafeAreaView>
   );
 }
@@ -35,7 +46,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    justifyContent: "center",
-    alignItems: "center"
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0
   }
 });
