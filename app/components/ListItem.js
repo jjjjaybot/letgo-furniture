@@ -4,9 +4,9 @@ import {
   Text,
   View,
   Image,
-  TouchableHighlight
+  TouchableHighlight,
+  Swipeable
 } from "react-native";
-import Swipeable from "react-native-gesture-handler/Swipeable";
 
 import AppText from "./AppText";
 import App from "../../App";

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -10,7 +10,8 @@ import {
   Alert,
   Platform,
   StatusBar,
-  Dimensions
+  Dimensions,
+  TextInput
 } from "react-native";
 import {
   useDimensions,
@@ -30,9 +31,14 @@ import Icon from "./app/components/Icon";
 import ListItem from "./app/components/ListItem";
 import AccountScreen from "./app/screens/AccountScreen";
 import ListingsScreen from "./app/screens/ListingsScreen";
+import AppTextInput from "./app/components/AppTextInput";
+import AppPicker from "./app/components/AppPicker";
+import LoginScreen from "./app/screens/LoginScreen";
+import ListingEditScreen from "./app/screens/ListingEditScreen";
 
 export default function App() {
   const { landscape } = useDeviceOrientation();
+  const [firstName, setFirstName] = useState("");
 
   return (
     <SafeAreaView style={styles.container}>
@@ -46,7 +52,9 @@ export default function App() {
       {/* <ViewImageScreen /> */}
       {/* <MessagesScreen /> */}
       {/* <AccountScreen /> */}
-      <ListingsScreen />
+      {/* <ListingsScreen /> */}
+      {/* <LoginScreen /> */}
+      <ListingEditScreen />
     </SafeAreaView>
   );
 }
