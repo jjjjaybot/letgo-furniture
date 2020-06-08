@@ -1,8 +1,8 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
 
 import { Formik } from "formik";
-export default function AppForm({
+export default function Form({
   initialValues,
   onSubmit,
   validationSchema,
