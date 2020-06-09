@@ -1,10 +1,14 @@
 import React from "react";
-import { StyleSheet, Image } from "react-native";
-import Screen from "../components/Screen";
+import { StyleSheet } from "react-native";
 import * as Yup from "yup";
+
+import Screen from "../components/Screen";
 import { Form, FormField, SubmitButton } from "../components/form";
 
 const validationSchema = Yup.object().shape({
+  name: Yup.string()
+    .required()
+    .label("Name"),
   email: Yup.string()
     .required()
     .email()
@@ -15,47 +19,48 @@ const validationSchema = Yup.object().shape({
     .label("Password")
 });
 
-export default function LoginScreen() {
+function RegisterScreen() {
   return (
     <Screen style={styles.container}>
-      <Image source={require("../assets/logo.png")} style={styles.image} />
       <Form
-        initialValues={{ email: "", password: "" }}
+        initialValues={{ name: "", email: "", password: "" }}
         onSubmit={values => console.log(values)}
         validationSchema={validationSchema}
       >
         <FormField
-          name='email'
+          autoCorrect={false}
+          icon='account'
+          name='name'
+          placeholder='Name'
+        />
+        <FormField
           autoCapitalize='none'
           autoCorrect={false}
           icon='email'
+          keyboardType='email-address'
+          name='email'
           placeholder='Email'
           textContentType='emailAddress'
         />
         <FormField
-          name='password'
           autoCapitalize='none'
           autoCorrect={false}
           icon='lock'
+          name='password'
           placeholder='Password'
           secureTextEntry
           textContentType='password'
         />
-        <SubmitButton title='Login' />
+        <SubmitButton title='Register' />
       </Form>
     </Screen>
   );
 }
 
 const styles = StyleSheet.create({
-  image: {
-    width: 80,
-    height: 80,
-    alignSelf: "center",
-    marginTop: 50,
-    marginBottom: 50
-  },
   container: {
     padding: 10
   }
 });
+
+export default RegisterScreen;
