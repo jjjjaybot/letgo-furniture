@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "HelloWorld",
-    "slug": "photoShare",
+    "name": "Sell Furnitures",
+    "slug": "furniture-shop",
     "platforms": ["ios", "android", "web"],
     "version": "1.0.0",
     "orientation": "portrait",
@@ -17,6 +17,10 @@
     "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
+    },
+    "description": "",
+    "notification": {
+      "iosDisplayInForeground": true
     }
   }
 }

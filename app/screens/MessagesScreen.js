@@ -9,15 +9,33 @@ import ListItemDeleteAction from "../components/ListItemDeleteAction";
 const initialMessages = [
   {
     id: 1,
-    title: "T1",
-    description: "D1",
-    image: require("../assets/chair.jpg")
+    title: "Jiazi",
+    description: "I want your chair, is anyone also buying it?",
+    image: require("../assets/jiazi.jpg")
   },
   {
     id: 2,
-    title: "T2",
-    description: "D2",
-    image: require("../assets/chair.jpg")
+    title: "John",
+    description: "Can I see more photos of the chair?",
+    image: require("../assets/boy1.png")
+  },
+  {
+    id: 3,
+    title: "Lee",
+    description: "What other colors do you have?",
+    image: require("../assets/girl1.jpg")
+  },
+  {
+    id: 4,
+    title: "Young",
+    description: "Is this chair used?",
+    image: require("../assets/boy2.png")
+  },
+  {
+    id: 5,
+    title: "Alice",
+    description: "Is this chair of good quality?",
+    image: require("../assets/girl2.png")
   }
 ];
 
