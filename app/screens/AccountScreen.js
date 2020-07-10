@@ -13,17 +13,17 @@ const menuItems = [
     title: "My Listings",
     icon: {
       name: "format-list-bulleted",
-      backgroundColor: colors.primary,
-    },
+      backgroundColor: colors.primary
+    }
   },
   {
     title: "My Messages",
     icon: {
       name: "email",
-      backgroundColor: colors.secondary,
+      backgroundColor: colors.secondary
     },
-    targetScreen: routes.MESSAGES,
-  },
+    targetScreen: routes.MESSAGES
+  }
 ];
 
 function AccountScreen({ navigation }) {
@@ -35,13 +35,13 @@ function AccountScreen({ navigation }) {
         <ListItem
           title={user.name}
           subTitle={user.email}
-          image={require("../assets/mosh.jpg")}
+          image={require("../assets/jiazi.jpg")}
         />
       </View>
       <View style={styles.container}>
         <FlatList
           data={menuItems}
-          keyExtractor={(menuItem) => menuItem.title}
+          keyExtractor={menuItem => menuItem.title}
           ItemSeparatorComponent={ListItemSeparator}
           renderItem={({ item }) => (
             <ListItem
@@ -58,8 +58,8 @@ function AccountScreen({ navigation }) {
         />
       </View>
       <ListItem
-        title="Log Out"
-        IconComponent={<Icon name="logout" backgroundColor="#ffe66d" />}
+        title='Log Out'
+        IconComponent={<Icon name='logout' backgroundColor='#ffe66d' />}
         onPress={() => logOut()}
       />
     </Screen>
@@ -68,11 +68,11 @@ function AccountScreen({ navigation }) {
 
 const styles = StyleSheet.create({
   screen: {
-    backgroundColor: colors.light,
+    backgroundColor: colors.light
   },
   container: {
-    marginVertical: 20,
-  },
+    marginVertical: 20
+  }
 });
 
 export default AccountScreen;

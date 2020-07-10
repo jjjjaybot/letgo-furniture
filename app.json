@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Sell Furnitures",
-    "slug": "furniture-shop",
+    "name": "Letgo Furniture",
+    "slug": "Letgo Furniture",
     "platforms": ["ios", "android", "web"],
     "version": "1.0.0",
     "orientation": "portrait",
@@ -9,18 +9,37 @@
     "splash": {
       "image": "./app/assets/splash.png",
       "resizeMode": "cover",
-      "backgroundColor": "#fff"
+      "backgroundColor": "#e63c4b"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "dev.jiazi",
+      "buildNumber": "1.0.0"
     },
-    "description": "",
+    "android": {
+      "package": "dev.jiazi",
+      "versionCode": 1
+    },
+    "description": "A place to post listings and sell furnitures that you don't need.",
     "notification": {
       "iosDisplayInForeground": true
+    },
+    "extra": {
+      "bugsnag": {
+        "apiKey": "1f89967da16ead7f99e7a2ad11c8f9ac"
+      }
+    },
+    "hooks": {
+      "postPublish": [
+        {
+          "file": "@bugsnag/expo/hooks/post-publish.js",
+          "config": {}
+        }
+      ]
     }
   }
 }
