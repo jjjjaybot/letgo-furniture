@@ -1,12 +1,11 @@
 import client from "./client";
 
-const send = (message, listingId) => {
+const send = (message, listingId) =>
   client.post("/messages", {
     message,
-    listingId
+    listingId,
   });
-};
 
 export default {
-  send
+  send,
 };

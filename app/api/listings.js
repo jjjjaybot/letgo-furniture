@@ -1,10 +1,10 @@
 import client from "./client";
 
 const endpoint = "/listings";
+
 const getListings = () => client.get(endpoint);
 
-const addListing = (listing, onUploadProgress) => {
-  //content-type
+export const addListing = (listing, onUploadProgress) => {
   const data = new FormData();
   data.append("title", listing.title);
   data.append("price", listing.price);
@@ -15,22 +15,20 @@ const addListing = (listing, onUploadProgress) => {
     data.append("images", {
       name: "image" + index,
       type: "image/jpeg",
-      uri: image
+      uri: image,
     })
   );
 
   if (listing.location)
     data.append("location", JSON.stringify(listing.location));
 
-  // parent > child
-
   return client.post(endpoint, data, {
-    onUploadProgress: progress =>
-      onUploadProgress(progress.loaded / progress.total)
+    onUploadProgress: (progress) =>
+      onUploadProgress(progress.loaded / progress.total),
   });
 };
 
 export default {
+  addListing,
   getListings,
-  addListing
 };
