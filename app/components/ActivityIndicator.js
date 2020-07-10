@@ -1,9 +1,10 @@
 import React from "react";
 import LottieView from "lottie-react-native";
-import { StyleSheet, View } from "react-native";
+import { View, StyleSheet } from "react-native";
 
-export default function ActivityIndicator({ visible = false }) {
+function ActivityIndicator({ visible = false }) {
   if (!visible) return null;
+
   return (
     <View style={styles.overlay}>
       <LottieView
@@ -18,10 +19,12 @@ export default function ActivityIndicator({ visible = false }) {
 const styles = StyleSheet.create({
   overlay: {
     position: "absolute",
+    backgroundColor: "white",
     height: "100%",
+    opacity: 0.8,
     width: "100%",
     zIndex: 1,
-    opacity: 0.8,
-    backgroundColor: "white"
-  }
+  },
 });
+
+export default ActivityIndicator;

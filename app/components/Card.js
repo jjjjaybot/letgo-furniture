@@ -1,29 +1,27 @@
 import React from "react";
-import { StyleSheet, Text, View, TouchableWithoutFeedback } from "react-native";
+import { View, StyleSheet, TouchableWithoutFeedback } from "react-native";
 import { Image } from "react-native-expo-image-cache";
 
-import color from "../config/color";
-import AppText from "./AppText";
+import Text from "./Text";
+import colors from "../config/colors";
 
-export default function Card({
-  title,
-  subTitle,
-  imageUrl,
-  onPress,
-  thumbnailUrl
-}) {
+function Card({ title, subTitle, imageUrl, onPress, thumbnailUrl }) {
   return (
     <TouchableWithoutFeedback onPress={onPress}>
       <View style={styles.card}>
         <Image
           style={styles.image}
+          tint="light"
           preview={{ uri: thumbnailUrl }}
-          tint='light'
           uri={imageUrl}
         />
         <View style={styles.detailsContainer}>
-          <AppText style={styles.title}>{title}</AppText>
-          <AppText style={styles.subTitle}>{subTitle}</AppText>
+          <Text style={styles.title} numberOfLines={1}>
+            {title}
+          </Text>
+          <Text style={styles.subTitle} numberOfLines={2}>
+            {subTitle}
+          </Text>
         </View>
       </View>
     </TouchableWithoutFeedback>
@@ -32,23 +30,25 @@ export default function Card({
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: color.white,
+    borderRadius: 15,
+    backgroundColor: colors.white,
     marginBottom: 20,
     overflow: "hidden",
-    borderRadius: 15
   },
   detailsContainer: {
-    padding: 20
+    padding: 20,
   },
   image: {
     width: "100%",
-    height: 200
-  },
-  title: {
-    marginBottom: 7
+    height: 200,
   },
   subTitle: {
-    color: color.secondary,
-    fontWeight: "bold"
-  }
+    color: colors.secondary,
+    fontWeight: "bold",
+  },
+  title: {
+    marginBottom: 7,
+  },
 });
+
+export default Card;

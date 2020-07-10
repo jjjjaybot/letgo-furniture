@@ -1,35 +1,38 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { View, StyleSheet } from "react-native";
 import Constants from "expo-constants";
 import { useNetInfo } from "@react-native-community/netinfo";
 
-import AppText from "../components/AppText";
-import color from "../config/color";
+import Text from "./Text";
+import colors from "../config/colors";
 
-export default function OfflineNotice() {
+function OfflineNotice(props) {
   const netInfo = useNetInfo();
-  if (netInfo.type !== "unknown" && netInfo.isInternetReachable === false) {
+
+  if (netInfo.type !== "unknown" && netInfo.isInternetReachable === false)
     return (
       <View style={styles.container}>
-        <AppText style={styles.text}>No Internet Connection</AppText>
+        <Text style={styles.text}>No Internet Connection</Text>
       </View>
     );
-  }
+
   return null;
 }
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: color.primary,
-    height: 50,
-    position: "absolute",
-    zIndex: 1,
-    width: "100%",
-    top: Constants.statusBarHeight,
     alignItems: "center",
-    justifyContent: "center"
+    backgroundColor: colors.primary,
+    height: 50,
+    justifyContent: "center",
+    position: "absolute",
+    top: Constants.statusBarHeight,
+    width: "100%",
+    zIndex: 1,
   },
   text: {
-    color: color.white
-  }
+    color: colors.white,
+  },
 });
+
+export default OfflineNotice;
