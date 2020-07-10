@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Letgo Furniture",
-    "slug": "Letgo Furniture",
+    "slug": "Letgo-Furniture",
     "platforms": ["ios", "android", "web"],
     "version": "1.0.0",
     "orientation": "portrait",
