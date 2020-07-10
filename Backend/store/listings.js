@@ -2,26 +2,26 @@ const listings = [
   {
     id: 201,
     title: "Red jacket",
-    images: [{ fileName: "newchair" }],
+    images: [{ fileName: "jacket1" }],
     price: 100,
     categoryId: 5,
     userId: 1,
     location: {
       latitude: 37.78825,
-      longitude: -122.4324
-    }
+      longitude: -122.4324,
+    },
   },
   {
     id: 3,
     title: "Gray couch in a great condition",
     images: [{ fileName: "couch2" }],
     categoryId: 1,
-    price: 800,
+    price: 1200,
     userId: 2,
     location: {
       latitude: 37.78825,
-      longitude: -122.4324
-    }
+      longitude: -122.4324,
+    },
   },
   {
     id: 1,
@@ -31,15 +31,15 @@ const listings = [
     images: [
       { fileName: "couch1" },
       { fileName: "couch2" },
-      { fileName: "couch3" }
+      { fileName: "couch3" },
     ],
-    price: 1900,
+    price: 1000,
     categoryId: 1,
     userId: 1,
     location: {
       latitude: 37.78825,
-      longitude: -122.4324
-    }
+      longitude: -122.4324,
+    },
   },
   {
     id: 2,
@@ -50,8 +50,8 @@ const listings = [
     userId: 2,
     location: {
       latitude: 37.78825,
-      longitude: -122.4324
-    }
+      longitude: -122.4324,
+    },
   },
   {
     id: 102,
@@ -62,8 +62,8 @@ const listings = [
     userId: 1,
     location: {
       latitude: 37.78825,
-      longitude: -122.4324
-    }
+      longitude: -122.4324,
+    },
   },
   {
     id: 101,
@@ -74,8 +74,8 @@ const listings = [
     userId: 1,
     location: {
       latitude: 37.78825,
-      longitude: -122.4324
-    }
+      longitude: -122.4324,
+    },
   },
   {
     id: 4,
@@ -87,8 +87,8 @@ const listings = [
     userId: 2,
     location: {
       latitude: 37.78825,
-      longitude: -122.4324
-    }
+      longitude: -122.4324,
+    },
   },
   {
     id: 6,
@@ -99,25 +99,25 @@ const listings = [
     userId: 2,
     location: {
       latitude: 37.78825,
-      longitude: -122.4324
-    }
-  }
+      longitude: -122.4324,
+    },
+  },
 ];
 
-const addListing = listing => {
+const addListing = (listing) => {
   listing.id = listings.length + 1;
   listings.push(listing);
 };
 
 const getListings = () => listings;
 
-const getListing = id => listings.find(listing => listing.id === id);
+const getListing = (id) => listings.find((listing) => listing.id === id);
 
-const filterListings = predicate => listings.filter(predicate);
+const filterListings = (predicate) => listings.filter(predicate);
 
 module.exports = {
   addListing,
   getListings,
   getListing,
-  filterListings
+  filterListings,
 };
