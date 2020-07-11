@@ -18,51 +18,50 @@ function ListingDetailsScreen({ route }) {
     getUsersApi.request();
   }, []);
   const theOne = getUsersApi.data.filter(obj => obj.id === listing.userId);
+
   if (theOne[0]) {
     listingUser = theOne[0].name;
   }
 
-  if (listingUser) {
-    return (
-      <KeyboardAvoidingView
-        behavior='position'
-        keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 100}
-      >
-        <Image
-          style={styles.image}
-          preview={{ uri: listing.images[0].thumbnailUrl }}
-          tint='light'
-          uri={listing.images[0].url}
-        />
-        <View style={styles.detailsContainer}>
-          <Text style={styles.title}>{listing.title}</Text>
-          <Text style={styles.price}>${listing.price}</Text>
-          <View style={styles.userContainer}>
-            <ListItem
-              image={
-                listing.userId === 1
-                  ? require("../assets/jiazi.jpg")
-                  : require("../assets/john.png")
-              }
-              title={listingUser}
-              subTitle='3 Listings'
-            />
-          </View>
-          <ContactSellerForm listing={listing} />
-        </View>
-      </KeyboardAvoidingView>
-    );
-  }
   return (
-    <View style={styles.overlay}>
-      <LottieView
-        autoPlay
-        loop
-        source={require("../assets/animations/loader.json")}
+    <KeyboardAvoidingView
+      behavior='position'
+      keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 100}
+    >
+      <Image
+        style={styles.image}
+        preview={{ uri: listing.images[0].thumbnailUrl }}
+        tint='light'
+        uri={listing.images[0].url}
       />
-    </View>
+      <View style={styles.detailsContainer}>
+        <Text style={styles.title}>{listing.title}</Text>
+        <Text style={styles.price}>${listing.price}</Text>
+        <View style={styles.userContainer}>
+          <ListItem
+            image={
+              listing.userId === 1
+                ? require("../assets/jiazi.jpg")
+                : require("../assets/john.png")
+            }
+            title={listingUser ? listingUser : ""}
+            subTitle='3 Listings'
+          />
+        </View>
+        <ContactSellerForm listing={listing} />
+      </View>
+    </KeyboardAvoidingView>
   );
 }
+// return (
+//   <View style={styles.overlay}>
+//     <LottieView
+//       autoPlay
+//       loop
+//       source={require("../assets/animations/loader.json")}
+//     />
+//   </View>
+// );
 
 const styles = StyleSheet.create({
   detailsContainer: {

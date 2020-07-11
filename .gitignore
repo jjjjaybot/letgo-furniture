@@ -11,6 +11,7 @@ web-build/
 web-report/
 
 Backend/node_modules
+Backend/public
 
 # macOS
 .DS_Store
