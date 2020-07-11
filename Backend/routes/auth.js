@@ -6,8 +6,12 @@ const usersStore = require("../store/users");
 const validateWith = require("../middleware/validation");
 
 const schema = {
-  email: Joi.string().email().required(),
-  password: Joi.string().required().min(5),
+  email: Joi.string()
+    .email()
+    .required(),
+  password: Joi.string()
+    .required()
+    .min(5)
 };
 
 router.post("/", validateWith(schema), (req, res) => {

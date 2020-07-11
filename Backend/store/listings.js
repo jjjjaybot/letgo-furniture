@@ -1,6 +1,6 @@
 const listings = [
   {
-    id: 3,
+    id: 1,
     title: "Gray couch in a great condition",
     images: [{ fileName: "couch2" }],
     categoryId: 1,
@@ -12,7 +12,7 @@ const listings = [
     }
   },
   {
-    id: 1,
+    id: 2,
     title: "Room & Board couch (great condition) - delivery included",
     description:
       "I'm selling my furniture at a discount price. Pick up at Venice. DM me asap.",
@@ -30,13 +30,25 @@ const listings = [
     }
   },
   {
-    id: 4,
+    id: 3,
     title: "Sectional couch - Delivery available",
     description: "No rips no stains no odors",
     images: [{ fileName: "couch3" }],
     categoryId: 1,
     price: 950,
     userId: 2,
+    location: {
+      latitude: 37.78825,
+      longitude: -122.4324
+    }
+  },
+  {
+    id: 4,
+    title: "Same couch different seller",
+    images: [{ fileName: "couch2" }],
+    categoryId: 1,
+    price: 1200,
+    userId: 1,
     location: {
       latitude: 37.78825,
       longitude: -122.4324

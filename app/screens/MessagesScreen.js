@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FlatList, StyleSheet, View } from "react-native";
 
 import Screen from "../components/Screen";
@@ -7,25 +7,18 @@ import {
   ListItemDeleteAction,
   ListItemSeparator
 } from "../components/lists";
-
-const initialMessages = [
-  {
-    id: 1,
-    title: "Jiazi Cai",
-    description: "Hey! Is this item still available?",
-    image: require("../assets/jiazi.jpg")
-  },
-  {
-    id: 2,
-    title: "Jiazi Cai",
-    description:
-      "I'm interested in this item. When will you be able to post it?",
-    image: require("../assets/jiazi.jpg")
-  }
-];
+import useApi from "../hooks/useApi";
+import messageApi from "../api/messages";
+import useAuth from "../auth/useAuth";
 
 function MessagesScreen(props) {
-  const [messages, setMessages] = useState(initialMessages);
+  const getMessagesApi = useApi(messageApi.getMessages);
+  const { user } = useAuth();
+
+  useEffect(() => {
+    getMessagesApi.request();
+  }, []);
+  const [messages, setMessages] = useState(0);
   const [refreshing, setRefreshing] = useState(false);
 
   const handleDelete = message => {
@@ -36,13 +29,17 @@ function MessagesScreen(props) {
   return (
     <Screen>
       <FlatList
-        data={messages}
+        data={getMessagesApi.data.filter(m => m.toUser.id === user.userId)}
         keyExtractor={message => message.id.toString()}
         renderItem={({ item }) => (
           <ListItem
-            title={item.title}
-            subTitle={item.description}
-            image={item.image}
+            title={item.fromUser.name}
+            subTitle={item.content}
+            image={
+              item.fromUser.id === 1
+                ? require("../assets/jiazi.jpg")
+                : require("../assets/john.png")
+            }
             onPress={() => console.log("Message selected", item)}
             renderRightActions={() => (
               <ListItemDeleteAction onPress={() => handleDelete(item)} />

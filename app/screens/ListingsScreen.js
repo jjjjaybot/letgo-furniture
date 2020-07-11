@@ -25,12 +25,12 @@ function ListingsScreen({ navigation }) {
         {getListingsApi.error && (
           <>
             <AppText>Couldn't retrieve the listings.</AppText>
-            <Button title="Retry" onPress={getListingsApi.request} />
+            <Button title='Retry' onPress={getListingsApi.request} />
           </>
         )}
         <FlatList
           data={getListingsApi.data}
-          keyExtractor={(listing) => listing.id.toString()}
+          keyExtractor={listing => listing.id.toString()}
           renderItem={({ item }) => (
             <Card
               title={item.title}
@@ -49,8 +49,8 @@ function ListingsScreen({ navigation }) {
 const styles = StyleSheet.create({
   screen: {
     padding: 20,
-    backgroundColor: colors.light,
-  },
+    backgroundColor: colors.light
+  }
 });
 
 export default ListingsScreen;

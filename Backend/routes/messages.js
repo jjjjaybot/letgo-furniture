@@ -12,24 +12,24 @@ const validateWith = require("../middleware/validation");
 
 const schema = {
   listingId: Joi.number().required(),
-  message: Joi.string().required(),
+  message: Joi.string().required()
 };
 
 router.get("/", auth, (req, res) => {
   const messages = messagesStore.getMessagesForUser(req.user.userId);
 
-  const mapUser = (userId) => {
+  const mapUser = userId => {
     const user = usersStore.getUserById(userId);
     return { id: user.id, name: user.name };
   };
 
-  const resources = messages.map((message) => ({
+  const resources = messages.map(message => ({
     id: message.id,
     listingId: message.listingId,
     dateTime: message.dateTime,
     content: message.content,
     fromUser: mapUser(message.fromUserId),
-    toUser: mapUser(message.toUserId),
+    toUser: mapUser(message.toUserId)
   }));
 
   res.send(resources);
@@ -48,7 +48,7 @@ router.post("/", [auth, validateWith(schema)], async (req, res) => {
     fromUserId: req.user.userId,
     toUserId: listing.userId,
     listingId,
-    content: message,
+    content: message
   });
 
   const { expoPushToken } = targetUser;
