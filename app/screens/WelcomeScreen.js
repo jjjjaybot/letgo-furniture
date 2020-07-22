@@ -12,17 +12,17 @@ function WelcomeScreen({ navigation }) {
       source={require("../assets/background.jpg")}
     >
       <View style={styles.logoContainer}>
-        <Image style={styles.logo} source={require("../assets/logo-red.png")} />
-        <Text style={styles.tagline}>Sell What You Don't Need</Text>
+        <Image style={styles.logo} source={require("../assets/logo.png")} />
+        <Text style={styles.tagline}>Letgo Furniture</Text>
       </View>
       <View style={styles.buttonsContainer}>
         <Button
-          title="Login"
+          title='Login'
           onPress={() => navigation.navigate(routes.LOGIN)}
         />
         <Button
-          title="Register"
-          color="secondary"
+          title='Register'
+          color='secondary'
           onPress={() => navigation.navigate(routes.REGISTER)}
         />
       </View>
@@ -34,26 +34,26 @@ const styles = StyleSheet.create({
   background: {
     flex: 1,
     justifyContent: "flex-end",
-    alignItems: "center",
+    alignItems: "center"
   },
   buttonsContainer: {
     padding: 20,
-    width: "100%",
+    width: "100%"
   },
   logo: {
     width: 100,
-    height: 100,
+    height: 100
   },
   logoContainer: {
     position: "absolute",
     top: 70,
-    alignItems: "center",
+    alignItems: "center"
   },
   tagline: {
     fontSize: 25,
     fontWeight: "600",
-    paddingVertical: 20,
-  },
+    paddingVertical: 20
+  }
 });
 
 export default WelcomeScreen;
