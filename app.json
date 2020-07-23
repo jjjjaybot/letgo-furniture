@@ -17,7 +17,7 @@
     "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "dev.jiazi",
+      "bundleIdentifier": "dev.jiazi.letgofurniture",
       "buildNumber": "1.0.0"
     },
     "android": {
