@@ -8,7 +8,7 @@ const settings = {
     apiUrl: "http://192.168.0.88:9000/api"
   },
   prod: {
-    apiUrl: "http://192.168.0.88:9000/api"
+    apiUrl: "https://letgo-backend.herokuapp.com/api"
   }
 };
 
